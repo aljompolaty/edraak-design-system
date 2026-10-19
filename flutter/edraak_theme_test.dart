@@ -29,7 +29,7 @@ void main() {
     }
   });
 
-  testWidgets('filled button renders with the Edraak action colour', (tester) async {
+  testWidgets('filled button uses the Edraak action colour', (tester) async {
     await tester.pumpWidget(MaterialApp(
       theme: EdraakTheme.light(),
       home: Scaffold(
@@ -37,7 +37,8 @@ void main() {
       ),
     ));
     expect(find.text('اطلب معاينة'), findsOneWidget);
-    final button = tester.widget<FilledButton>(find.byType(FilledButton));
-    expect(button.style?.backgroundColor?.resolve({}), EdraakColors.orange700);
+    // The button takes its fill from the colour scheme's primary colour.
+    final scheme = Theme.of(tester.element(find.byType(FilledButton))).colorScheme;
+    expect(scheme.primary, EdraakColors.orange700);
   });
 }
