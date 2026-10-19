@@ -1,6 +1,3 @@
-# Runs the real Flutter toolchain on GitHub's servers (which have internet access).
-# Repository layout: the whole `edraak-design-system/` folder sits at the repo root,
-# and this file goes to  .github/workflows/flutter-theme-check.yml
 name: Edraak theme check
 
 on:
@@ -26,7 +23,7 @@ jobs:
           def ratio(a, b):
               hi, lo = sorted([lum(a), lum(b)], reverse=True)
               return (hi + 0.05) / (lo + 0.05)
-          m = json.load(open('edraak-design-system/manifest.json', encoding='utf-8'))
+          m = json.load(open('manifest.json', encoding='utf-8'))
           needed = {'normal': 4.5, 'large': 3.0, 'nontext': 3.0}
           failures = []
           for row in m['contrast']:
@@ -45,8 +42,8 @@ jobs:
       - name: Create app and install Edraak theme
         run: |
           flutter create edraak_app
-          cp edraak-design-system/flutter/edraak_theme.dart edraak_app/lib/
-          cp edraak-design-system/flutter/edraak_theme_test.dart edraak_app/test/
+          cp flutter/edraak_theme.dart edraak_app/lib/
+          cp flutter/edraak_theme_test.dart edraak_app/test/
           rm -f edraak_app/test/widget_test.dart
 
       - name: Get dependencies
