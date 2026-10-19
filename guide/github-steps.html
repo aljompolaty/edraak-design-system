@@ -1,0 +1,145 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل تشغيل اختبار Flutter على GitHub</title>
+<style>
+:root{--navy:#112C46;--orange:#C94D12;--orange2:#ED6725;--bg:#fff;--surface:#F3F6F9;--text:#112C46;--text2:#4A5D70;--border:#D5DEE7;--ok:#1E7B4A}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Tahoma,system-ui,sans-serif;background:var(--surface);color:var(--text);line-height:1.8}
+.wrap{max-width:900px;margin:0 auto;padding:32px 20px}
+h1{color:var(--navy);margin:0 0 8px;font-size:30px}
+.lead{color:var(--text2);margin:0 0 24px}
+.card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.step{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:2px 14px;font-weight:700;font-size:14px}
+h2{margin:10px 0 6px;font-size:22px}
+p,li{color:var(--text2)}
+ol li{margin-bottom:6px}
+code,pre{font-family:Consolas,monospace;direction:ltr;text-align:left}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;overflow:auto;font-size:14px;color:var(--text)}
+.tip{background:#FFF4EC;border-inline-start:4px solid var(--orange);padding:10px 14px;border-radius:8px;color:var(--text)}
+.ok{background:#EEF8F2;border-inline-start:4px solid var(--ok);padding:10px 14px;border-radius:8px;color:var(--text)}
+svg{width:100%;max-width:700px;height:auto;display:block;margin:12px auto}
+.bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:6px}
+</style></head><body><div class="wrap">
+
+<h1>تشغيل اختبار Flutter على GitHub — خطوة بخطوة</h1>
+<p class="lead">المدة المتوقعة: حوالي 10 دقائق. لا تحتاج إلى تثبيت أي برنامج على جهازك، كل شيء يتم في المتصفح.</p>
+
+<div class="card">
+<span class="step">الخطوة 1</span>
+<h2>إنشاء حساب GitHub ومستودع جديد</h2>
+<p>إذا لم يكن لديك حساب، أنشئ واحداً من github.com. ثم اضغط زر <b>+</b> أعلى الصفحة واختر <b>New repository</b>.</p>
+<svg viewBox="0 0 700 260" role="img" aria-label="نموذج إنشاء مستودع">
+  <rect x="10" y="10" width="680" height="240" rx="12" fill="#F3F6F9" stroke="#D5DEE7"/>
+  <text x="40" y="55" font-size="20" font-weight="700" fill="#112C46">Create a new repository</text>
+  <text x="40" y="95" font-size="14" fill="#4A5D70">Repository name *</text>
+  <rect x="40" y="105" width="420" height="36" rx="6" fill="#fff" stroke="#8FA6BA"/>
+  <text x="54" y="129" font-size="15" fill="#112C46">edraak-design-system</text>
+  <text x="40" y="170" font-size="14" fill="#4A5D70">Visibility: Private (مستحسن)</text>
+  <rect x="520" y="190" width="150" height="40" rx="8" fill="#C94D12"/>
+  <text x="595" y="216" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">Create repository</text>
+</svg>
+<div class="tip">اختر <b>Private</b> حتى لا يكون المشروع علنياً. اسم المستودع حر، لكن استخدم <code>edraak-design-system</code> لتسهيل المتابعة.</div>
+</div>
+
+<div class="card">
+<span class="step">الخطوة 2</span>
+<h2>ترتيب الملفات على جهازك</h2>
+<p>تأكد أن مجلد <code>edraak-design-system</code> الذي تسلّمته يبدو هكذا:</p>
+<pre>edraak-design-system/
+├── edraak-design-system.html
+├── manifest.json
+├── tokens.css
+├── tailwind.config.js
+├── fonts/
+├── logo/
+├── icons/
+├── social/
+├── flutter/
+│   ├── edraak_theme.dart
+│   ├── edraak_theme_test.dart
+│   ├── edraak_pubspec_fonts.yaml
+│   └── ci/
+│       └── flutter-theme-check.yml   ← ملف الاختبار الآلي
+└── guide/</pre>
+<div class="tip">لا تغيّر أسماء الملفات أو أماكنها، لأن سير العمل يبحث عنها بهذه الأسماء بالضبط.</div>
+</div>
+
+<div class="card">
+<span class="step">الخطوة 3</span>
+<h2>رفع المجلد إلى المستودع</h2>
+<ol>
+<li>من صفحة المستودع الجديد، اضغط <b>uploading an existing file</b> أو <b>Add file ← Upload files</b>.</li>
+<li>اسحب <b>محتويات</b> مجلد <code>edraak-design-system</code> (كل الملفات والمجلدات داخله، وليس المجلد نفسه) إلى المنطقة المخصصة.</li>
+<li>انتظر حتى تكتمل قائمة الرفع، ثم اكتب رسالة قصيرة مثل <i>Initial upload</i>.</li>
+<li>اضغط <b>Commit changes</b>.</li>
+</ol>
+<svg viewBox="0 0 700 220" role="img" aria-label="منطقة سحب الملفات">
+  <rect x="10" y="10" width="680" height="200" rx="12" fill="#F3F6F9" stroke="#D5DEE7"/>
+  <rect x="60" y="30" width="580" height="160" rx="10" fill="#fff" stroke="#8FA6BA" stroke-dasharray="8 6"/>
+  <text x="350" y="95" font-size="20" font-weight="700" fill="#112C46" text-anchor="middle">Drag files here to add them to your repository</text>
+  <text x="350" y="130" font-size="15" fill="#4A5D70" text-anchor="middle">اسحب محتويات المجلد هنا</text>
+  <rect x="260" y="150" width="180" height="26" rx="6" fill="#112C46"/>
+  <text x="350" y="168" font-size="13" fill="#fff" text-anchor="middle">Commit changes</text>
+</svg>
+</div>
+
+<div class="card">
+<span class="step">الخطوة 4</span>
+<h2>إنشاء ملف سير العمل داخل GitHub</h2>
+<p>هذه الخطوة تنقل ملف الاختبار الآلي إلى المكان الذي يبحث فيه GitHub.</p>
+<ol>
+<li>اضغط <b>Add file ← Create new file</b>.</li>
+<li>في خانة اسم الملف اكتب بالضبط:<br><code>.github/workflows/flutter-theme-check.yml</code><br>عند كتابة الشرطة المائلة <code>/</code> ينشئ GitHub المجلدات تلقائياً.</li>
+<li>افتح على جهازك الملف <code>flutter/ci/flutter-theme-check.yml</code> بمحرر نصوص (مثل Notepad)، وانسخ <b>كل محتواه</b>.</li>
+<li>الصقه في منطقة المحتوى الكبيرة.</li>
+<li>اضغط <b>Commit changes</b>.</li>
+</ol>
+<svg viewBox="0 0 700 260" role="img" aria-label="نموذج إنشاء ملف">
+  <rect x="10" y="10" width="680" height="240" rx="12" fill="#F3F6F9" stroke="#D5DEE7"/>
+  <text x="40" y="50" font-size="14" fill="#4A5D70">Name your file...</text>
+  <rect x="40" y="62" width="620" height="36" rx="6" fill="#fff" stroke="#8FA6BA"/>
+  <text x="54" y="86" font-size="15" fill="#112C46" font-family="Consolas,monospace">.github/workflows/flutter-theme-check.yml</text>
+  <rect x="40" y="112" width="620" height="110" rx="6" fill="#fff" stroke="#8FA6BA"/>
+  <text x="54" y="138" font-size="13" fill="#4A5D70" font-family="Consolas,monospace">name: Edraak theme check</text>
+  <text x="54" y="160" font-size="13" fill="#4A5D70" font-family="Consolas,monospace">on: push ...</text>
+  <text x="54" y="182" font-size="13" fill="#8FA6BA" font-family="Consolas,monospace">(الصق المحتوى كاملاً هنا)</text>
+</svg>
+<div class="tip">انتبه: النقطة في أول الاسم مهمة. إذا ظهر الملف في مكان آخر فالمسار غير صحيح.</div>
+</div>
+
+<div class="card">
+<span class="step">الخطوة 5</span>
+<h2>تشغيل الاختبار ومتابعة النتيجة</h2>
+<ol>
+<li>من أعلى المستودع اختر تبويب <b>Actions</b>.</li>
+<li>إذا طُلب منك تفعيل سير العمل فاضغط <b>I understand my workflows, go ahead and enable them</b>.</li>
+<li>سيبدأ التشغيل تلقائياً بعد حفظ الملف. إذا لم يبدأ، اختر الاسم <b>Edraak theme check</b> من القائمة الجانبية ثم اضغط <b>Run workflow</b>.</li>
+<li>انتظر بضع دقائق (أول مرة تكون أطول لأنه يحمّل Flutter).</li>
+</ol>
+<svg viewBox="0 0 700 300" role="img" aria-label="نتيجة التشغيل">
+  <rect x="10" y="10" width="680" height="280" rx="12" fill="#fff" stroke="#D5DEE7"/>
+  <text x="30" y="50" font-size="16" font-weight="700" fill="#112C46">Edraak theme check</text>
+  <rect x="30" y="70" width="640" height="46" rx="8" fill="#EEF8F2" stroke="#1E7B4A"/>
+  <circle cx="58" cy="93" r="10" fill="#1E7B4A"/><text x="58" y="98" font-size="13" fill="#fff" text-anchor="middle">✓</text>
+  <text x="84" y="98" font-size="15" fill="#112C46">Verify WCAG contrast — نجح (15 pairs)</text>
+  <rect x="30" y="126" width="640" height="46" rx="8" fill="#EEF8F2" stroke="#1E7B4A"/>
+  <circle cx="58" cy="149" r="10" fill="#1E7B4A"/><text x="58" y="154" font-size="13" fill="#fff" text-anchor="middle">✓</text>
+  <text x="84" y="154" font-size="15" fill="#112C46">Run tests — نجح</text>
+  <rect x="30" y="182" width="640" height="46" rx="8" fill="#FDECEA" stroke="#B42318"/>
+  <circle cx="58" cy="205" r="10" fill="#B42318"/><text x="58" y="210" font-size="13" fill="#fff" text-anchor="middle">✕</text>
+  <text x="84" y="210" font-size="15" fill="#112C46">Static analysis — فشل: اضغط للتفاصيل</text>
+</svg>
+<div class="ok"><b>النجاح:</b> كل الخطوات بعلامة ✓ خضراء. <b>الفشل:</b> اضغط على الخطوة الحمراء، وانسخ السطر الذي يحوي كلمة <code>error</code> وأرسله لي.</div>
+</div>
+
+<div class="card">
+<span class="step">الخطوة 6</span>
+<h2>إذا فشل التشغيل: ماذا أرسل لي؟</h2>
+<ol>
+<li>افتح الخطوة الفاشلة واضغط عليها.</li>
+<li>انسخ آخر 30 سطراً تقريباً من السجل، وخاصة الأسطر التي تحتوي <code>error</code> أو <code>Error</code>.</li>
+<li>أرسلها لي مع اسم الخطوة الفاشلة، وسأعدّل الملفات وأعطيك نسخة محدّثة للرفع.</li>
+</ol>
+</div>
+
+</div></body></html>

@@ -1,0 +1,374 @@
+{
+  "name": "Edraak Engineering Design System",
+  "version": "1.3.0",
+  "logo_source": "ed01.png (full logo, navy wordmark + orange mark)",
+  "primitives": {
+    "navy-950": "#0B1D2E",
+    "navy-900": "#112C46",
+    "navy-700": "#2B4A66",
+    "navy-300": "#8FA6BA",
+    "navy-50": "#E9EEF3",
+    "orange-500": "#ED6725",
+    "orange-700": "#C94D12",
+    "orange-300": "#FF9A66",
+    "white": "#FFFFFF",
+    "gray-50": "#F3F6F9",
+    "gray-200": "#D5DEE7",
+    "gray-600": "#4A5D70",
+    "success": "#1E7B4A",
+    "info": "#1F5FA8",
+    "error": "#B42318"
+  },
+  "light": {
+    "bg": "#FFFFFF",
+    "surface": "#F3F6F9",
+    "text": "#112C46",
+    "text2": "#4A5D70",
+    "border": "#D5DEE7",
+    "action": "#C94D12",
+    "onaction": "#FFFFFF",
+    "accent": "#C94D12",
+    "focus": "#1F5FA8",
+    "error": "#B42318"
+  },
+  "dark": {
+    "bg": "#0B1D2E",
+    "surface": "#112C46",
+    "text": "#F3F6F9",
+    "text2": "#B8C7D5",
+    "border": "#2B4A66",
+    "action": "#ED6725",
+    "onaction": "#0B1D2E",
+    "accent": "#FF9A66",
+    "focus": "#8FB8E0",
+    "error": "#FF8A80"
+  },
+  "typography": {
+    "primary_sans": "Thmanyah Sans (Light, Regular, Bold, Black)",
+    "display_serif": "Thmanyah Serif Display Bold (quotes and editorial only)",
+    "scale": {
+      "display": "56/64/900",
+      "h1": "40/48/900",
+      "h2": "32/40/700",
+      "h3": "24/32/700",
+      "body_l": "18/30/400",
+      "body": "16/26/400",
+      "caption": "14/22/400",
+      "label": "13/20/500"
+    },
+    "fallback": "Noto Sans Arabic, system-ui, sans-serif"
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96
+  ],
+  "radius": {
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "pill": 999
+  },
+  "breakpoints": {
+    "mobile": 360,
+    "tablet": 768,
+    "desktop": 1024,
+    "wide": 1440
+  },
+  "social": {
+    "post_1x1": "1080x1080",
+    "post_4x5": "1080x1350",
+    "story_9x16": "1080x1920",
+    "story_safe_zone_px": 250,
+    "dark_templates": [
+      "dark-post-1x1-1080x1080.png",
+      "dark-post-4x5-1080x1350.png",
+      "dark-carousel-01-1x1.png",
+      "dark-carousel-02-1x1.png",
+      "dark-carousel-03-1x1.png"
+    ]
+  },
+  "contrast": [
+    {
+      "label": "النص الأساسي على الخلفية",
+      "theme": "فاتح",
+      "fg": "#112C46",
+      "bg": "#FFFFFF",
+      "ratio": 14.26,
+      "kind": "normal",
+      "aa": true,
+      "aaa": true
+    },
+    {
+      "label": "النص الثانوي على الخلفية",
+      "theme": "فاتح",
+      "fg": "#4A5D70",
+      "bg": "#FFFFFF",
+      "ratio": 6.79,
+      "kind": "normal",
+      "aa": true,
+      "aaa": false
+    },
+    {
+      "label": "النص الثانوي على السطح",
+      "theme": "فاتح",
+      "fg": "#4A5D70",
+      "bg": "#F3F6F9",
+      "ratio": 6.26,
+      "kind": "normal",
+      "aa": true,
+      "aaa": false
+    },
+    {
+      "label": "النص الأساسي على السطح",
+      "theme": "فاتح",
+      "fg": "#112C46",
+      "bg": "#F3F6F9",
+      "ratio": 13.15,
+      "kind": "normal",
+      "aa": true,
+      "aaa": true
+    },
+    {
+      "label": "نص الزر على لون الإجراء",
+      "theme": "فاتح",
+      "fg": "#FFFFFF",
+      "bg": "#C94D12",
+      "ratio": 4.61,
+      "kind": "normal",
+      "aa": true,
+      "aaa": false
+    },
+    {
+      "label": "لون التمييز للنص على الخلفية",
+      "theme": "فاتح",
+      "fg": "#C94D12",
+      "bg": "#FFFFFF",
+      "ratio": 4.61,
+      "kind": "normal",
+      "aa": true,
+      "aaa": false
+    },
+    {
+      "label": "رسالة الخطأ على الخلفية",
+      "theme": "فاتح",
+      "fg": "#B42318",
+      "bg": "#FFFFFF",
+      "ratio": 6.57,
+      "kind": "normal",
+      "aa": true,
+      "aaa": false
+    },
+    {
+      "label": "حلقة التركيز على الخلفية",
+      "theme": "فاتح",
+      "fg": "#1F5FA8",
+      "bg": "#FFFFFF",
+      "ratio": 6.44,
+      "kind": "nontext",
+      "aa": true,
+      "aaa": null
+    },
+    {
+      "label": "البرتقالي للشعار والعناوين الكبيرة",
+      "theme": "فاتح",
+      "fg": "#ED6725",
+      "bg": "#FFFFFF",
+      "ratio": 3.2,
+      "kind": "large",
+      "aa": true,
+      "aaa": false
+    },
+    {
+      "label": "النص الأساسي على الخلفية",
+      "theme": "داكن",
+      "fg": "#F3F6F9",
+      "bg": "#0B1D2E",
+      "ratio": 15.75,
+      "kind": "normal",
+      "aa": true,
+      "aaa": true
+    },
+    {
+      "label": "النص الثانوي على الخلفية",
+      "theme": "داكن",
+      "fg": "#B8C7D5",
+      "bg": "#0B1D2E",
+      "ratio": 9.9,
+      "kind": "normal",
+      "aa": true,
+      "aaa": true
+    },
+    {
+      "label": "نص الزر على لون الإجراء",
+      "theme": "داكن",
+      "fg": "#0B1D2E",
+      "bg": "#ED6725",
+      "ratio": 5.34,
+      "kind": "normal",
+      "aa": true,
+      "aaa": false
+    },
+    {
+      "label": "لون التمييز للنص على الخلفية",
+      "theme": "داكن",
+      "fg": "#FF9A66",
+      "bg": "#0B1D2E",
+      "ratio": 8.19,
+      "kind": "normal",
+      "aa": true,
+      "aaa": true
+    },
+    {
+      "label": "رسالة الخطأ على الخلفية",
+      "theme": "داكن",
+      "fg": "#FF8A80",
+      "bg": "#0B1D2E",
+      "ratio": 7.48,
+      "kind": "normal",
+      "aa": true,
+      "aaa": true
+    },
+    {
+      "label": "حلقة التركيز على الخلفية",
+      "theme": "داكن",
+      "fg": "#8FB8E0",
+      "bg": "#0B1D2E",
+      "ratio": 8.22,
+      "kind": "nontext",
+      "aa": true,
+      "aaa": null
+    }
+  ],
+  "microcopy": [
+    {
+      "state": "زر أساسي",
+      "ar": "ابدأ تقييم الاحتياج",
+      "en": "Start your needs assessment",
+      "rule": "فعل أمر واضح ومرتبط بالنتيجة"
+    },
+    {
+      "state": "زر ثانوي",
+      "ar": "اطلب معاينة",
+      "en": "Request an inspection",
+      "rule": "فعل أمر يحدد الخطوة التالية"
+    },
+    {
+      "state": "خطأ في الإرسال",
+      "ar": "تعذّر إرسال الطلب. تحقّق من الاتصال وأعد المحاولة.",
+      "en": "We couldn't send your request. Check your connection and try again.",
+      "rule": "لا لوم، وخطوة تالية واحدة"
+    },
+    {
+      "state": "نجاح",
+      "ar": "تم استلام طلبك. سيتواصل معك فريقنا قريباً.",
+      "en": "Request received. Our team will contact you shortly.",
+      "rule": "تأكيد هادئ بدون علامات تعجب"
+    },
+    {
+      "state": "حالة فارغة",
+      "ar": "لا توجد طلبات بعد. أضف أول طلب لبدء المتابعة.",
+      "en": "No requests yet. Add your first request to start tracking.",
+      "rule": "وجّه إلى الخطوة التالية مباشرة"
+    },
+    {
+      "state": "خطأ تحقق من الحقل",
+      "ar": "أدخل رقم هاتف صحيحاً.",
+      "en": "Enter a valid phone number.",
+      "rule": "حدّد المطلوب بدون توبيخ"
+    },
+    {
+      "state": "تحميل",
+      "ar": "جارٍ تحميل البيانات…",
+      "en": "Loading your data…",
+      "rule": "وصف قصير لما يحدث"
+    },
+    {
+      "state": "إجراء لا يمكن التراجع عنه",
+      "ar": "هل تريد إلغاء الطلب؟ لا يمكن التراجع عن هذا الإجراء.",
+      "en": "Cancel this request? This action can't be undone.",
+      "rule": "اذكر الأثر قبل الزر"
+    }
+  ],
+  "icons": {
+    "mark": "logo/icon-mark-orange.png",
+    "mark_white": "logo/icon-mark-white.png",
+    "app_icon": "icons/app-icon-1024.png",
+    "sizes": [
+      32,
+      180,
+      192,
+      512
+    ]
+  },
+  "color_split": "60% white/surface, 30% navy, 10% orange",
+  "changelog": [
+    {
+      "version": "1.3.0",
+      "added": [
+        "Dark social templates: 1:1 and 4:5 posts, 1:1 carousel (3 slides)"
+      ],
+      "changed": [],
+      "deprecated": [],
+      "fixed": []
+    },
+    {
+      "version": "1.2.0",
+      "added": [
+        "English microcopy column and manifest microcopy",
+        "Icon mark assets and app icon sizes 32/180/192/512",
+        "Navigation, data table, toast, modal and skeleton components"
+      ],
+      "changed": [],
+      "deprecated": [],
+      "fixed": []
+    },
+    {
+      "version": "1.1.1",
+      "added": [
+        "Thmanyah Sans Medium (500) bundled"
+      ],
+      "changed": [
+        "Phone numbers render in left-to-right order on social templates"
+      ],
+      "deprecated": [],
+      "fixed": [
+        "Labels using weight 500 now use the real Medium face",
+        "CI now verifies WCAG contrast from manifest tokens"
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "added": [
+        "Flutter ThemeData export (flutter/edraak_theme.dart)",
+        "Carousel templates 1:1 (3 slides)"
+      ],
+      "changed": [],
+      "deprecated": [],
+      "fixed": []
+    },
+    {
+      "version": "1.0.0",
+      "added": [
+        "Primitive and semantic palette (light and dark)",
+        "Typography scale on Thmanyah Sans",
+        "4pt spacing, radius, shadow and breakpoint tokens",
+        "WCAG 2.1 contrast matrix",
+        "CSS variables, Tailwind config, JSON manifest",
+        "Social templates 1:1, 4:5, 9:16",
+        "Component states and microcopy rules"
+      ],
+      "changed": [
+        "Brand navy set to #112C46 measured from logo file (earlier notes had an approximate value)"
+      ],
+      "deprecated": [],
+      "fixed": []
+    }
+  ]
+}

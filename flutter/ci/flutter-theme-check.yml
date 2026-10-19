@@ -1,0 +1,62 @@
+# Runs the real Flutter toolchain on GitHub's servers (which have internet access).
+# Repository layout: the whole `edraak-design-system/` folder sits at the repo root,
+# and this file goes to  .github/workflows/flutter-theme-check.yml
+name: Edraak theme check
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify WCAG contrast from design tokens
+        run: |
+          python3 - << 'PY'
+          import json, sys
+          def lum(h):
+              h = h.lstrip('#')
+              c = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+              f = lambda v: v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4
+              r, g, b = map(f, c)
+              return 0.2126 * r + 0.7152 * g + 0.0722 * b
+          def ratio(a, b):
+              hi, lo = sorted([lum(a), lum(b)], reverse=True)
+              return (hi + 0.05) / (lo + 0.05)
+          m = json.load(open('edraak-design-system/manifest.json', encoding='utf-8'))
+          needed = {'normal': 4.5, 'large': 3.0, 'nontext': 3.0}
+          failures = []
+          for row in m['contrast']:
+              r = ratio(row['fg'], row['bg'])
+              if r < needed[row['kind']]:
+                  failures.append((row['label'], row['theme'], round(r, 2)))
+          print(f"checked {len(m['contrast'])} pairs; failures: {failures}")
+          sys.exit(1 if failures else 0)
+          PY
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Create app and install Edraak theme
+        run: |
+          flutter create edraak_app
+          cp edraak-design-system/flutter/edraak_theme.dart edraak_app/lib/
+          cp edraak-design-system/flutter/edraak_theme_test.dart edraak_app/test/
+          rm -f edraak_app/test/widget_test.dart
+
+      - name: Get dependencies
+        working-directory: edraak_app
+        run: flutter pub get
+
+      - name: Static analysis
+        working-directory: edraak_app
+        run: flutter analyze --fatal-infos
+
+      - name: Run tests
+        working-directory: edraak_app
+        run: flutter test
